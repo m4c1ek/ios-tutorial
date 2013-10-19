@@ -7,6 +7,8 @@
 //
 
 #import "MMITEmployeesViewController.h"
+#import "Employees.h"
+#import "MMITTableViewCellEmployee.h"
 
 @interface MMITEmployeesViewController ()
 
@@ -25,7 +27,13 @@
 
 - (void)viewDidLoad
 {
-//    TODO
+    NSURL *location = [NSURL URLWithString:@"http://192.168.0.11:8080/contacts.json"];
+    [[[Employees alloc] init] getFeedsFrom:location withCompletionHandler:^(EmployeesResponse *er) {
+        self.feeds = er.feeds;
+        self.emptyImage = [UIImage imageNamed:@"empty.png"];
+        self.images = [NSMutableDictionary dictionaryWithCapacity:[er.feeds count]];
+        [self.tableView reloadData];
+    }];
     [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
@@ -46,21 +54,58 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-//    TODO
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-//    TODO
-    return 0;
+    return [self.feeds count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    TODO
-    return nil;
+    static NSString *CellIdentifier = @"Cell";
+    MMITTableViewCellEmployee *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSDictionary * item = [self.feeds objectAtIndex:indexPath.row];
+    cell.customLabel.text = [item objectForKey:@"name"];
+
+    cell.customImage.image = nil;
+    NSString *imageUrl = [item objectForKey:@"imageUrl"];
+    UIImage * cachedImage = [self.images objectForKey:imageUrl];
+    if (imageUrl && !cachedImage) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSURL* aURL = [NSURL URLWithString:imageUrl];
+            NSData* data = [[NSData alloc] initWithContentsOfURL:aURL];
+            UIImage *image = [UIImage imageWithData:data];
+            if (image) {
+                [self.images setObject:image forKey:imageUrl];
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                });
+            }
+        });
+    }
+    else if (cachedImage) {
+        cell.customImage.image = cachedImage;
+    }
+
+    cell.linkedinImageView.image = nil;
+    BOOL hasFirstAndLast = ([item objectForKey:@"firstname"] && [item objectForKey:@"lastname"]);
+    NSString *firstnamelastname = [NSString stringWithFormat:@"%@%@",[item objectForKey:@"firstname"], [item objectForKey:@"lastname"]];
+    UIImage * cachedLinkedinImage = [self.images objectForKey:firstnamelastname];
+    if (hasFirstAndLast && !cachedLinkedinImage) {
+        [[[Employees alloc] init] getImageForEmployee:item withCompletionHandler:^ (UIImage *image) {
+            if (image) {
+                [self.images setObject:image forKey:firstnamelastname];
+                [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }
+        }];
+    } else if (cachedLinkedinImage) {
+      cell.linkedinImageView.image = cachedLinkedinImage;
+    }
+
+    return cell;
 }
 
 /*
