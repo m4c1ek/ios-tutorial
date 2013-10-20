@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1D6998A6143146FDAA10CCEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8141FB159B4A7F869D5911 /* libPods.a */; };
+		C23AF2791813158C00595F41 /* ios-tutorial-model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C23AF2771813158C00595F41 /* ios-tutorial-model.xcdatamodeld */; };
+		C23AF27C181317C000595F41 /* MMITEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = C23AF27B181317C000595F41 /* MMITEmployee.m */; };
+		C23AF2C018131CAF00595F41 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C23AF2BF18131CAF00595F41 /* CoreData.framework */; };
 		C2BCFDB4180C647500848CC2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BCFDB3180C647500848CC2 /* Foundation.framework */; };
 		C2BCFDB6180C647500848CC2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BCFDB5180C647500848CC2 /* CoreGraphics.framework */; };
 		C2BCFDB8180C647500848CC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BCFDB7180C647500848CC2 /* UIKit.framework */; };
@@ -24,6 +27,7 @@
 		C2BCFDDF180C647600848CC2 /* ios_tutorialTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BCFDDE180C647600848CC2 /* ios_tutorialTests.m */; };
 		CEAF34ADEA2CADE7436F69A8 /* MMITEmployeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAF38017A7B0FC56D0AAE5F /* MMITEmployeesViewController.m */; };
 		CEAF372BCA4327780F20A7F6 /* MMITEmployeesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAF3D276161F53DA3E459E2 /* MMITEmployeesViewController.xib */; };
+		CEAF38FCEA50C829862CD4DA /* MMITEmployeesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAF337B04774AF6C4574A03 /* MMITEmployeesManager.m */; };
 		CEAF39520E8E31928A1D6E34 /* empty.png in Resources */ = {isa = PBXBuildFile; fileRef = CEAF3893FAA8BA46D2CE2E9B /* empty.png */; };
 		CEAF3FDD37E2A951E603DBA7 /* MMITTableViewCellEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAF3027E249F2E102FA9DE7 /* MMITTableViewCellEmployee.m */; };
 /* End PBXBuildFile section */
@@ -41,6 +45,10 @@
 /* Begin PBXFileReference section */
 		5B8F12A4C4CC4B55AE4BC45D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		7A8141FB159B4A7F869D5911 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C23AF2781813158C00595F41 /* ios-tutorial-model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ios-tutorial-model.xcdatamodel"; sourceTree = "<group>"; };
+		C23AF27A181317C000595F41 /* MMITEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMITEmployee.h; path = model/MMITEmployee.h; sourceTree = "<group>"; };
+		C23AF27B181317C000595F41 /* MMITEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMITEmployee.m; path = model/MMITEmployee.m; sourceTree = "<group>"; };
+		C23AF2BF18131CAF00595F41 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C2BCFDB0180C647500848CC2 /* ios-tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BCFDB3180C647500848CC2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2BCFDB5180C647500848CC2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -61,11 +69,13 @@
 		C2BCFDDC180C647600848CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2BCFDDE180C647600848CC2 /* ios_tutorialTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_tutorialTests.m; sourceTree = "<group>"; };
 		CEAF3027E249F2E102FA9DE7 /* MMITTableViewCellEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMITTableViewCellEmployee.m; sourceTree = "<group>"; };
+		CEAF337B04774AF6C4574A03 /* MMITEmployeesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMITEmployeesManager.m; path = model/MMITEmployeesManager.m; sourceTree = "<group>"; };
 		CEAF38017A7B0FC56D0AAE5F /* MMITEmployeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMITEmployeesViewController.m; sourceTree = "<group>"; };
 		CEAF3893FAA8BA46D2CE2E9B /* empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty.png; sourceTree = "<group>"; };
 		CEAF3A683553FCFC4CDBF70E /* MMITTableViewCellEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMITTableViewCellEmployee.h; sourceTree = "<group>"; };
 		CEAF3D276161F53DA3E459E2 /* MMITEmployeesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MMITEmployeesViewController.xib; sourceTree = "<group>"; };
 		CEAF3E37C2BB431A727107C5 /* MMITEmployeesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMITEmployeesViewController.h; sourceTree = "<group>"; };
+		CEAF3F008BCA47EDF6094722 /* MMITEmployeesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MMITEmployeesManager.h; path = model/MMITEmployeesManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23AF2C018131CAF00595F41 /* CoreData.framework in Frameworks */,
 				C2BCFDB6180C647500848CC2 /* CoreGraphics.framework in Frameworks */,
 				C2BCFDB8180C647500848CC2 /* UIKit.framework in Frameworks */,
 				C2BCFDB4180C647500848CC2 /* Foundation.framework in Frameworks */,
@@ -93,6 +104,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C23AF27D181317D100595F41 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C23AF2771813158C00595F41 /* ios-tutorial-model.xcdatamodeld */,
+				C23AF27A181317C000595F41 /* MMITEmployee.h */,
+				C23AF27B181317C000595F41 /* MMITEmployee.m */,
+				CEAF3F008BCA47EDF6094722 /* MMITEmployeesManager.h */,
+				CEAF337B04774AF6C4574A03 /* MMITEmployeesManager.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		C2BCFDA7180C647500848CC2 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +139,7 @@
 		C2BCFDB2180C647500848CC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C23AF2BF18131CAF00595F41 /* CoreData.framework */,
 				C2BCFDB3180C647500848CC2 /* Foundation.framework */,
 				C2BCFDB5180C647500848CC2 /* CoreGraphics.framework */,
 				C2BCFDB7180C647500848CC2 /* UIKit.framework */,
@@ -133,6 +157,7 @@
 				C2BCFDC5180C647500848CC2 /* Main.storyboard */,
 				C2BCFDC8180C647500848CC2 /* MMITViewController.h */,
 				C2BCFDC9180C647500848CC2 /* MMITViewController.m */,
+				C23AF27D181317D100595F41 /* model */,
 				C2BCFDCB180C647500848CC2 /* Images.xcassets */,
 				C2BCFDBA180C647500848CC2 /* Supporting Files */,
 				CEAF3E37C2BB431A727107C5 /* MMITEmployeesViewController.h */,
@@ -240,8 +265,6 @@
 			mainGroup = C2BCFDA7180C647500848CC2;
 			productRefGroup = C2BCFDB1180C647500848CC2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				C2BCFDAF180C647500848CC2 /* ios-tutorial */,
@@ -313,9 +336,12 @@
 			files = (
 				C2BCFDC0180C647500848CC2 /* main.m in Sources */,
 				C2BCFDCA180C647500848CC2 /* MMITViewController.m in Sources */,
+				C23AF2791813158C00595F41 /* ios-tutorial-model.xcdatamodeld in Sources */,
 				C2BCFDC4180C647500848CC2 /* MMITAppDelegate.m in Sources */,
 				CEAF34ADEA2CADE7436F69A8 /* MMITEmployeesViewController.m in Sources */,
+				C23AF27C181317C000595F41 /* MMITEmployee.m in Sources */,
 				CEAF3FDD37E2A951E603DBA7 /* MMITTableViewCellEmployee.m in Sources */,
+				CEAF38FCEA50C829862CD4DA /* MMITEmployeesManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +558,7 @@
 				C2BCFDE4180C647600848CC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2BCFDE5180C647600848CC2 /* Build configuration list for PBXNativeTarget "ios-tutorialTests" */ = {
 			isa = XCConfigurationList;
@@ -540,8 +567,23 @@
 				C2BCFDE7180C647600848CC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C23AF2771813158C00595F41 /* ios-tutorial-model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C23AF2781813158C00595F41 /* ios-tutorial-model.xcdatamodel */,
+			);
+			currentVersion = C23AF2781813158C00595F41 /* ios-tutorial-model.xcdatamodel */;
+			name = "ios-tutorial-model.xcdatamodeld";
+			path = "model/ios-tutorial-model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C2BCFDA8180C647500848CC2 /* Project object */;
 }

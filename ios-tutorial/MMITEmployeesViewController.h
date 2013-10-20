@@ -8,9 +8,10 @@
 
 
 
-@interface MMITEmployeesViewController : UITableViewController
+@interface MMITEmployeesViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property(nonatomic, strong) NSArray *feeds;
 @property(nonatomic, strong) NSMutableDictionary *images;
 @property(nonatomic, strong) UIImage *emptyImage;
+@property(nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @end
