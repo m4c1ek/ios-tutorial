@@ -31,27 +31,48 @@
 
 - (void)saveEmployee:(NSDictionary *)item {
     MMITEmployee *employee = [self employeeWithName:[item objectForKey:@"name"]];
-    if (!employee) return;
 
     NSString *imageUrl = [item objectForKey:@"imageUrl"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSURL* aURL = [NSURL URLWithString:imageUrl];
         NSData* imageData = [[NSData alloc] initWithContentsOfURL:aURL];
         dispatch_sync(dispatch_get_main_queue(), ^{
-            //TODO (2)
+            employee.image = imageData;
+            [self saveContext];
         });
     });
 
     if ([item objectForKey:@"firstname"] && [item objectForKey:@"lastname"]) {
         [[[Employees alloc] init] getImageForEmployee:item withCompletionHandler:^ (UIImage *image) {
-            //TODO (2)
+            employee.linkedInImage = UIImagePNGRepresentation(image);
+            [self saveContext];
         }];
     }
 }
 
 - (MMITEmployee *)employeeWithName:(NSString *)name {
-    //TODO (2)
-    return nil;
+    NSEntityDescription *entityDescription = [NSEntityDescription
+            entityForName:@"MMITEmployee" inManagedObjectContext:self.context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+            @"name == %@", name];
+    [request setPredicate:predicate];
+    NSError *error;
+    NSArray *array = [self.context executeFetchRequest:request error:&error];
+    MMITEmployee *employee = nil;
+
+    if (array != nil && [array count]>0) {
+        employee = [array objectAtIndex:0];
+    } else if (error == nil) {
+        employee = [NSEntityDescription
+                insertNewObjectForEntityForName:@"MMITEmployee"
+                         inManagedObjectContext:self.context];
+        employee.name = name;
+        [self saveContext];
+    }
+
+    return employee;
 }
 
 - (void)saveContext {
