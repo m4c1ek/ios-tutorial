@@ -20,7 +20,6 @@
 
 @property(nonatomic, strong) MMITEmployeesManager *employeeManager;
 
-- (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
 @end

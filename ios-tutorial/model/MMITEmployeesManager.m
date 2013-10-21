@@ -12,8 +12,9 @@
     if (self) {
         self.context = context;
         self.reachability = [Reachability reachabilityWithHostname:@"www.google.com"];
+        __weak MMITEmployeesManager* em = self;
         self.reachability.reachableBlock = ^(Reachability*reach) {
-            [self fetchRemoteData];
+            [em fetchRemoteData];
         };
         [self.reachability startNotifier];
     }

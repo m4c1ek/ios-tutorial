@@ -10,8 +10,10 @@
 #import "MMITTableViewCellEmployee.h"
 #import "MMITAppDelegate.h"
 #import "MMITEmployee.h"
+#import "MMITSwatchTransition.h"
+#import "MMITDetailsViewController.h"
 
-@interface MMITEmployeesViewController ()
+@interface MMITEmployeesViewController () <UIViewControllerTransitioningDelegate>
 
 @end
 
@@ -70,7 +72,7 @@
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -173,8 +175,19 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MMITDetailsViewController *viewController =
+    [[UIStoryboard storyboardWithName:@"Main" bundle:nil]
+     instantiateViewControllerWithIdentifier:@"MMITDetailsViewController"];
+    viewController.transitioningDelegate = self;
+    MMITEmployee* employee = [_fetchedResultsController objectAtIndexPath:indexPath];
+    viewController.employee = employee;
+    [self presentViewController:viewController animated:YES completion:nil];
     // TODO (3)
     // create details view
+
 }
 
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    return [[MMITSwatchTransition alloc] init];
+}
 @end

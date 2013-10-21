@@ -25,6 +25,8 @@
 		C2BCFDD5180C647600848CC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2BCFDB7180C647500848CC2 /* UIKit.framework */; };
 		C2BCFDDD180C647600848CC2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C2BCFDDB180C647600848CC2 /* InfoPlist.strings */; };
 		C2BCFDDF180C647600848CC2 /* ios_tutorialTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2BCFDDE180C647600848CC2 /* ios_tutorialTests.m */; };
+		C2EA558A1815A8D200E6FD6C /* MMITSwatchTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EA55891815A8D200E6FD6C /* MMITSwatchTransition.m */; };
+		C2EA558D1815A95800E6FD6C /* MMITDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EA558C1815A95800E6FD6C /* MMITDetailsViewController.m */; };
 		CEAF34ADEA2CADE7436F69A8 /* MMITEmployeesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAF38017A7B0FC56D0AAE5F /* MMITEmployeesViewController.m */; };
 		CEAF372BCA4327780F20A7F6 /* MMITEmployeesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEAF3D276161F53DA3E459E2 /* MMITEmployeesViewController.xib */; };
 		CEAF38FCEA50C829862CD4DA /* MMITEmployeesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAF337B04774AF6C4574A03 /* MMITEmployeesManager.m */; };
@@ -68,6 +70,10 @@
 		C2BCFDDA180C647600848CC2 /* ios-tutorialTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios-tutorialTests-Info.plist"; sourceTree = "<group>"; };
 		C2BCFDDC180C647600848CC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C2BCFDDE180C647600848CC2 /* ios_tutorialTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_tutorialTests.m; sourceTree = "<group>"; };
+		C2EA55881815A8D200E6FD6C /* MMITSwatchTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMITSwatchTransition.h; sourceTree = "<group>"; };
+		C2EA55891815A8D200E6FD6C /* MMITSwatchTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMITSwatchTransition.m; sourceTree = "<group>"; };
+		C2EA558B1815A95800E6FD6C /* MMITDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMITDetailsViewController.h; sourceTree = "<group>"; };
+		C2EA558C1815A95800E6FD6C /* MMITDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMITDetailsViewController.m; sourceTree = "<group>"; };
 		CEAF3027E249F2E102FA9DE7 /* MMITTableViewCellEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMITTableViewCellEmployee.m; sourceTree = "<group>"; };
 		CEAF337B04774AF6C4574A03 /* MMITEmployeesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MMITEmployeesManager.m; path = model/MMITEmployeesManager.m; sourceTree = "<group>"; };
 		CEAF38017A7B0FC56D0AAE5F /* MMITEmployeesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMITEmployeesViewController.m; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 		C2BCFDB9180C647500848CC2 /* ios-tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				C2EA55871815A88800E6FD6C /* animation */,
 				C2BCFDC2180C647500848CC2 /* MMITAppDelegate.h */,
 				C2BCFDC3180C647500848CC2 /* MMITAppDelegate.m */,
 				C2BCFDC5180C647500848CC2 /* Main.storyboard */,
@@ -164,6 +171,8 @@
 				CEAF38017A7B0FC56D0AAE5F /* MMITEmployeesViewController.m */,
 				CEAF3D276161F53DA3E459E2 /* MMITEmployeesViewController.xib */,
 				CEAF3A683553FCFC4CDBF70E /* MMITTableViewCellEmployee.h */,
+				C2EA558B1815A95800E6FD6C /* MMITDetailsViewController.h */,
+				C2EA558C1815A95800E6FD6C /* MMITDetailsViewController.m */,
 				CEAF3027E249F2E102FA9DE7 /* MMITTableViewCellEmployee.m */,
 				CEAF3893FAA8BA46D2CE2E9B /* empty.png */,
 			);
@@ -197,6 +206,15 @@
 				C2BCFDDB180C647600848CC2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2EA55871815A88800E6FD6C /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				C2EA55881815A8D200E6FD6C /* MMITSwatchTransition.h */,
+				C2EA55891815A8D200E6FD6C /* MMITSwatchTransition.m */,
+			);
+			name = animation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,8 +355,10 @@
 				C2BCFDC0180C647500848CC2 /* main.m in Sources */,
 				C2BCFDCA180C647500848CC2 /* MMITViewController.m in Sources */,
 				C23AF2791813158C00595F41 /* ios-tutorial-model.xcdatamodeld in Sources */,
+				C2EA558A1815A8D200E6FD6C /* MMITSwatchTransition.m in Sources */,
 				C2BCFDC4180C647500848CC2 /* MMITAppDelegate.m in Sources */,
 				CEAF34ADEA2CADE7436F69A8 /* MMITEmployeesViewController.m in Sources */,
+				C2EA558D1815A95800E6FD6C /* MMITDetailsViewController.m in Sources */,
 				C23AF27C181317C000595F41 /* MMITEmployee.m in Sources */,
 				CEAF3FDD37E2A951E603DBA7 /* MMITTableViewCellEmployee.m in Sources */,
 				CEAF38FCEA50C829862CD4DA /* MMITEmployeesManager.m in Sources */,
